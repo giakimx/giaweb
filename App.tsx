@@ -5,9 +5,10 @@ import AIChatBot from './components/AIChatBot';
 import ProjectPage from './components/ProjectPage';
 import ResumePage from './components/ResumePage';
 import ThoughtsPage from './components/ThoughtsPage';
+import USStatesGame from './components/USStatesGame';
 import { Job } from './types';
 
-type ViewState = 'home' | 'project' | 'resume' | 'thoughts';
+type ViewState = 'home' | 'project' | 'resume' | 'thoughts' | 'states-game';
 
 export const App: React.FC = () => {
   const { personal, experience, socials, strengths, tools, funFacts, education, blog } = PORTFOLIO_CONTENT;
@@ -76,6 +77,10 @@ export const App: React.FC = () => {
     return <ThoughtsPage blog={blog} onBack={handleBack} />;
   }
 
+  if (view === 'states-game') {
+    return <USStatesGame onBack={handleBack} />;
+  }
+
   if (view === 'project' && selectedJob) {
     return (
       <ProjectPage 
@@ -111,6 +116,7 @@ export const App: React.FC = () => {
           <button onClick={() => handleScrollTo('about')} className="hover:text-neutral-900 transition-colors uppercase">About</button>
           <button onClick={() => handleScrollTo('projects')} className="hover:text-neutral-900 transition-colors uppercase">Projects</button>
           <button onClick={() => setView('thoughts')} className="hover:text-neutral-900 transition-colors uppercase">Thoughts</button>
+          <button onClick={() => setView('states-game')} className="hover:text-neutral-900 transition-colors uppercase">Quiz</button>
         </div>
 
         <div className="flex items-center gap-4">
