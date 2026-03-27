@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Mail, Linkedin, FileText, ChevronRight, ArrowRight, Share2, ExternalLink, ArrowDown } from 'lucide-react';
+import { Share2, ExternalLink, ArrowDown } from 'lucide-react';
 import { PORTFOLIO_CONTENT, BRAND_LOGOS } from './constants';
 import AIChatBot from './components/AIChatBot';
 import ProjectPage from './components/ProjectPage';
@@ -75,6 +75,7 @@ export const App: React.FC = () => {
   if (view === 'thoughts') {
     return <ThoughtsPage blog={blog} onBack={handleBack} />;
   }
+
 
   if (view === 'project' && selectedJob) {
     return (
